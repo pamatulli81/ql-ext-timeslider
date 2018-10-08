@@ -12,5 +12,5 @@ Settings Panel:
 
 Extension in action:
 
-![alt text](https://github.com/pamaxeed/ql-ext-timeslider/blob/master/img/TimeSlider3.mp4)
+![alt text](https://github.com/pamaxeed/ql-ext-timeslider/blob/master/img/timeSlider.gif)
 
