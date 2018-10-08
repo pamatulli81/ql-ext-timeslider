@@ -1,0 +1,17 @@
+{
+	"name": "QlikLab Animated Slider",
+	"description": "Animated Slider Extension",
+	"author": "qlikLab - Patric Amatulli",
+	"icon": "extension",
+	"type": "visualization",
+	"version": "0.1.0",
+	"preview": "preview.png",
+	"author": "patric.amatulli@axeed.ch",
+	"homepage": "https://github.com/pamaxeed",
+	"keywords": "qlik-sense, visualization",
+	"license": "MIT",
+	"repository": "",
+	"dependencies": {
+		"qlik-sense": ">=3.1.x"
+	}
+}
