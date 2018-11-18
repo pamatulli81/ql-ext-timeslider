@@ -46,15 +46,9 @@ define(function () {
           type: "items",
           label: "Timeline Field",
           ref: "qListObjectDef",
-          min: 1,
+          min: 0,
           max: 1,
           items: {
-            label: {
-              type: "string",
-              ref: "qListObjectDef.qDef.qFieldLabels.0",
-              label: "Label",
-              show: true
-            },
             field: {
               type: "string",
               expression: "always",
@@ -62,6 +56,7 @@ define(function () {
               ref: "qListObjectDef.qDef.qFieldDefs.0",
               label: "Field",
               show: function (data) {
+                console.log(data);
                 return data.qListObjectDef && !data.qListObjectDef.qLibraryId;
               }
             },

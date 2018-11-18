@@ -18,11 +18,11 @@ define(['qlik', 'jquery', './config', './../js/jQuery.slider.custom', "text!./..
             var app = qlik.currApp(this);
             var visualizationThis = this;
             var values = [];
-         
-            if (typeof layout.axeed === 'undefined') {
+
+            if (typeof layout.qlikLab === 'undefined') {
                 var visualization = {};
             } else {
-                var visualization = layout.axeed;
+                var visualization = layout.qlikLab;
             }
 
             $element.empty();
@@ -51,8 +51,8 @@ define(['qlik', 'jquery', './config', './../js/jQuery.slider.custom', "text!./..
                         if (values.length > 0) {
 
                             values = values.sort(function (a, b) {
-                                let aValue = a.qNum == "NaN" ? a.qNum : a.qText;
-                                let bValue = b.qNum == "NaN" ? b.qNum : b.qText;
+                                let aValue = a.qNum != "NaN" ? a.qNum : a.qText;
+                                let bValue = b.qNum != "NaN" ? b.qNum : b.qText;
                                 return aValue == bValue ? 0 : +(aValue > bValue) || -1;
                             });
                             visualizationThis.state.values = values;
@@ -123,6 +123,7 @@ define(['qlik', 'jquery', './config', './../js/jQuery.slider.custom', "text!./..
 
             function setupProperties($element, visualization, layout, id) {
 
+                var htmlStr, label;
                 let properties = visualization.properties;
 
                 if (typeof properties === 'undefined') {
@@ -133,16 +134,19 @@ define(['qlik', 'jquery', './config', './../js/jQuery.slider.custom', "text!./..
                 properties.rootDivId = 'viz_slider_' + id;
                 properties.class = 'qlSlider';
 
-                if (layout.props != undefined) {
-                    properties.refVar = layout.props['refVar'];
-                }
+                label = visualizationThis.state.play ? 'Stop' : 'Play';
 
-                let label = visualizationThis.state.play ? 'Stop' : 'Play';
-                let htmlStr = '<div id="' + properties.rootDivId + ' style="width:100%;">' +
-                    '<button id="play" class="play" style="margin-top:5px">' +
-                    label +
-                    '</button><div style="margin-left:2%;margin-top:17px;width:90%;float:left"> <div id="slider"></div></div><span id="sliderMsg"></span>' +
-                    '</div>';
+                if (layout.qListObject.qDimensionInfo.qFallbackTitle != undefined && layout.qListObject.qDimensionInfo.qFallbackTitle != '') {
+                    htmlStr = '<div id="' + properties.rootDivId + ' style="width:100%;">' +
+                        '<button id="play" class="play" style="margin-top:5px">' +
+                        label +
+                        '</button><div style="margin-left:2%;margin-top:17px;width:90%;float:left"> <div id="slider"></div></div><span id="sliderMsg"></span>' +
+                        '</div>'; 
+                }
+                else {
+                    htmlStr = '<div id="' + properties.rootDivId + ' style="width:100%;">' +
+                        '<div><span id="sliderMsg">Please define a Field for the Timeslider animation!</span></div>';
+                }
 
                 $element.html(htmlStr);
 
@@ -167,6 +171,7 @@ define(['qlik', 'jquery', './config', './../js/jQuery.slider.custom', "text!./..
 
                 state.interval = layout.qSlider.qInterval;
                 state.step = layout.qSlider.qStaticStep;
+
             }
         }
     });
