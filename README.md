@@ -1,4 +1,4 @@
-# qliklab animated slider Animation
+# qliklab animated time slider extension
 
 The qliklab timeline slider animation is a Qlik Sense extension that uses [jQuery slider](https://jqueryui.com/slider/).
 The extension is based on a ***field (and not on variable)***. 
