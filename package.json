@@ -1,0 +1,19 @@
+{
+  "name": "ql-ext-timesldier",
+  "version": "1.0.0",
+  "description": "The qliklab timeline slider animation is a Qlik Sense extension that uses [jQuery slider](https://jqueryui.com/slider/). The extension is based on a ***field (and not on variable)***.",
+  "main": "ql-ext-animated-slider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pamaxeed/ql-ext-timeslider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pamaxeed/ql-ext-timeslider/issues"
+  },
+  "homepage": "https://github.com/pamaxeed/ql-ext-timeslider#readme"
+}
